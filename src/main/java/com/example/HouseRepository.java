@@ -16,19 +16,13 @@
 
 package com.example;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.repository.CrudRepository;
 
 /**
- * Sample application for MySQL.
+ * A sample repository for House entities.
  *
- * @author João André Martins
- * @author Chengyuan Zhao
+ * @author Joao Andre Martins
  */
-@SpringBootApplication
-public class SqlApplication {
+public interface HouseRepository extends CrudRepository<House, Long> {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SqlApplication.class, args);
-	}
 }
