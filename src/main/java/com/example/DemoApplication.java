@@ -43,7 +43,7 @@ public class DemoApplication {
 	}
     @GetMapping("/hello")
     public String hello(HouseRepository houseRepository) {
-        return houseRepository.count();
+        return String.valueOf(houseRepository.count());
     }
 	@Bean
 	public CommandLineRunner houses(HouseRepository houseRepository) {
