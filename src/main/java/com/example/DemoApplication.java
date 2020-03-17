@@ -32,6 +32,7 @@ import org.springframework.context.annotation.Bean;
  * @author Joao Andre Martins
  */
 @SpringBootApplication
+@RestController
 public class DemoApplication {
 
 	private static final Log LOGGER = LogFactory.getLog(DemoApplication.class);
@@ -39,7 +40,10 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
+    @GetMapping("/hello")
+    public String hello(HouseRepository houseRepository) {
+        return houseRepository.count();
+    }
 	@Bean
 	public CommandLineRunner houses(HouseRepository houseRepository) {
 		return (args) -> {
