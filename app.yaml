@@ -1,10 +1,8 @@
-runtime: java
-env: flex
-runtime_config:
-  jdk: openjdk8
-env_variables:
-  SPRING_PROFILES_ACTIVE: "gcp,mysql"
 
-manual_scaling: 
-  instances: 1
+runtime: java11
+instance_class: F1
+# Explicitly set the memory limit and maximum heap size for the Spring Boot app
+env_variables:
+  JAVA_TOOL_OPTIONS: "-XX:MaxRAM=256m -XX:ActiveProcessorCount=2 -Xmx32m"
+
 entrypoint: java -noverify -jar target/TestHibernate-0.1.jar
