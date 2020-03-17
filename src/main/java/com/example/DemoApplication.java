@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,16 +37,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoApplication {
 
 	private static final Log LOGGER = LogFactory.getLog(DemoApplication.class);
-
+@Autowired
+    HouseRepository houseRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
     @GetMapping("/hello")
-    public String hello(HouseRepository houseRepository) {
+    public String hello() {
         return String.valueOf(houseRepository.count());
     }
 	@Bean
-	public CommandLineRunner houses(HouseRepository houseRepository) {
+	public CommandLineRunner houses() {
 		return (args) -> {
 			houseRepository.deleteAll();
 
