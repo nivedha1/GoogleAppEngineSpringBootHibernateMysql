@@ -1,5 +1,5 @@
 # Introduction 
 
-A google app engine springbok and hibernate project using mysql google cloud platform instance
+A google app engine springboot and hibernate project using mysql google cloud platform instance
 
 
